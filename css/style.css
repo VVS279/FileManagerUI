@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+* {
+    font-family: "Montserrat", sans-serif;
+}
+
+button {
+    background-color: aqua;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    font-size: .8em;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 2px 0;
+    position: absolute;
+    z-index: 1;
+    top: 150%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+body,
+.header,
+.navigator,
+.tools {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    top: 0;
+    position: -webkit-sticky;
+    position: sticky;
+    background-color: white;
+}
+
+.footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: #fff;
+}
+
+.navigator>div {
+    display: inline-block;
+}
+
+.header div {
+    display: inline-block;
+}
+
+.header>div:first-child {
+    width: 60%;
+    margin: 0;
+    padding: .2em;
+}
+
+.header>div:last-child {
+    width: 35%;
+    margin: 0;
+    padding: .2em;
+}
+
+.path {
+    width: 80%;
+}
+
+.path input {
+    width: 70%;
+}
+
+.tools {
+    text-align: end;
+}
+
+.tools div {
+    padding: .3em;
+}
+
+.header,
+.footer {
+    border: 1px solid rgb(148, 148, 148);
+}
+
+.navigator a {
+    color: white;
+    background-color: gray;
+    padding: .4em;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+.navigator input {
+    color: black;
+    text-decoration: none;
+    padding: .4em;
+    border-radius: .2em;
+    border: 2px solid rgb(49, 49, 204);
+    outline: none;
+    font-weight: bold;
+}
+
+.navigator a:last-child {
+    color: white;
+    border-radius: .2em;
+    outline: none;
+}
+
+.mainBody {
+    padding: 2em;
+}
+
+.mainBody>div {
+    display: inline-block;
+    padding: 1em;
+}
+
+.folder,
+.file {
+    margin: 0;
+    text-align: center;
+    padding: .1em;
+}
+
+.folder h5,
+.file h5 {
+    margin: 0px;
+}
+
+.folder:hover,
+.file:hover {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .header>div:first-child {
+        width: 100%;
+    }
+    .path input {
+        width: 70%;
+    }
+    .header>div:last-child {
+        width: 100%;
+    }
+    .navigator>div {
+        display: block;
+    }
+    .header div {
+        display: inline-block;
+    }
+    .tools {
+        text-align: start;
+    }
+}
+
+
+/*------------ Right Click Functionality   ----------------*/
+
+#context-menu {
+    padding: 0;
+    position: absolute;
+    z-index: 10000;
+    /* width: 150px; */
+    background: #ffffff;
+    border-radius: 5px;
+    transform: scale(0);
+    transform-origin: top left;
+    border: 1px solid gray;
+}
+
+#context-menu.active {
+    transform: scale(1);
+    transition: transform 300ms ease-in-out;
+}
+
+#context-menu .item {
+    padding: 8px 10px;
+    font-size: 15px;
+    color: black;
+}
+
+#context-menu .item:hover {
+    background: #555;
+    color: white;
+}
+
+#context-menu .item i {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+#context-menu hr {
+    margin: 2px 0px;
+    border-color: #555;
+}
