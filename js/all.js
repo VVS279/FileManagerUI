@@ -4,7 +4,7 @@ var data = {
     "path": "/hello"
 };
 
-var backPath = "/";
+var backPath = new Array();
 var selectedItem;
 var path = data["path"];
 var folders = data["folders"].sort();
@@ -38,8 +38,7 @@ function setView() {
 
 
 function openFolder(folderName) {
-    console.log("open folder:" + folderName);
-    backPath = path;
+    backPath.push(path);
     if (path == "/") {
         path = path + folderName;
     } else {
@@ -78,7 +77,11 @@ function home() {
 }
 
 function back() {
-    $('#path').val(backPath);
+    if (backPath.length > 0) {
+        path = backPath.pop();
+        $('#path').val(path);
+
+    }
 }
 
 $(document).ready(setView());
