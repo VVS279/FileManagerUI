@@ -53,15 +53,37 @@ function leftClick(event, item) {
     selectedItem = item;
     var contextElement = document.getElementById("context-menu");
     contextElement.classList.add("active");
-    contextElement.style.top = event["y"] + "px";
-    contextElement.style.left = event["x"] + "px";
+    contextElement.style.top = event.clientY + "px";
+    contextElement.style.left = event.clientX + "px";
+}
+
+
+function copyLink() {
+    var link = path + "/" + selectedItem;
+    console.log(link);
+    var textArea = document.createElement("textarea");
+    textArea.style.position = 'fixed';
+    textArea.style.top = 0;
+    textArea.style.left = 0;
+    textArea.style.opacity = 0;
+    textArea.value = link;
+    document.body.appendChild(textArea);
+    textArea.select();
+    try {
+        var successful = document.execCommand('copy');
+        var msg = successful ? 'successful' : 'unsuccessful';
+        console.log('Copying text command was ' + msg);
+    } catch (err) {
+        console.log('Oops, unable to copy');
+    }
+    document.body.removeChild(textArea);
 }
 
 function deleteItem() {
     var isConfiremed = confirm("Please confirm if you want to delete this files");
     if (isConfiremed) {
-        folders.remove(selectedItem);
-        file.remove(selectedItem);
+        folders.pop(selectedItem);
+        files.pop(selectedItem);
         setView();
     }
 }
@@ -72,7 +94,6 @@ function selectedFile(file) {
 
 function home() {
     path = "/";
-    backPath = "/";
     getData(path);
 }
 

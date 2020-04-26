@@ -4,58 +4,43 @@
 <head>
     <script src="./js/jQuery.js"></script>
     <script src="icons/fontawesome-free/js/all.min.js"></script>
-    <link rel="stylesheet" href="./css/style.css" />
+    <!-- <link rel="stylesheet" href="./css/style.css" /> -->
     <link href="./icons/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="./css/newStyle.css" rel="stylesheet" type="text/css">
+    <script src="./js/all.js"></script>
 </head>
 
 <body>
-    <h2>
-        <center>FILE MANAGER</center>
-    </h2>
-    <!-- Header -->
-    <div class="container-fuild header">
-        <!-- Path Navigator -->
-        <div class="navigator">
-            <div class="path">
-                <a href="#" name="home" id="home" onclick="home()"><i class="fas fa-home"></i></a>
-                <a href="#" name="back" id="back" onclick="back()"><i class="fas fa-arrow-left"></i></a>
-                <input type="text" name="path" id="path" value="/" />
-                <a href="#" class="tooltip" name="refresh" id="refresh"><i class="fas fa-sync"></i><span class="tooltiptext">Refresh</span></a>
-            </div>
-        </div>
-        <!-- Tools -->
-        <div class="tools">
-            <!-- Sort By -->
-            <button name="newFolder" id="newFolder">New Folder</button>
-            <button name="upload" id="upload">Upload</button>
-            <div class="tools__sort">
-                Sort By: <select name="tools__sort__sort" id="tools__sort__sort">
-                            <option value="name">Name</option>
-                            <option value="type">Type</option>
-                            <option value="date">Date</option>
-                            <option value="size">Size</option>
-                        </select>
-            </div>
-            <!-- View -->
-            <div class="tools__view">
-                View: <select name="tools__view__view" id="tools__view__view">
-                    <option value="lg_icon">Large Icon</option>
-                    <option value="list">List</option>
-                </select>
-            </div>
-        </div>
 
-    </div>
-    <!--Body-->
-    <div class="container-fuild mainBody">
-        <div class="folder" id="folder" ondblclick="openFolder('folder')" onclick="selectedFile('folder')" oncontextmenu="leftClick(event, 'folder')" contextmenu="context-menu">
-            <img src="./icons/folder.png" alt="folder" height="70px" width="auto">
-            <h5>Folder</h5>
-        </div>
-        <div class="file" id="file" onclick="selectedFile('file')" oncontextmenu="leftClick(event, 'file')" contextmenu="context-menu">
-            <img src="./icons/file.png" alt="file" height="70px" width="auto">
-            <h5>File</h5>
-        </div>
+    <div class="grid-container">
+        <header>
+            <h2>
+                <center>FILE MANAGER</center>
+            </h2>
+        </header>
+        <section class="navigator">
+            <a href="#" name="home" id="home" onclick="home()"><i class="fas fa-home"></i></a>
+            <a href="#" name="back" id="back" onclick="back()"><i class="fas fa-arrow-left"></i></a>
+            <input type="text" name="path" id="path" value="/" />
+            <a href="#" class="tooltip" name="refresh" id="refresh"><i class="fas fa-sync"></i><span class="tooltiptext"></span></a>
+        </section>
+
+        <section class="tools">
+            <div class="newFolder">
+                <button name="tools-newFolder" id="newFolder">New Folder</button>
+            </div>
+            <div class="upload">
+                <button name="tools-upload" id="upload">Upload</button>
+            </div>
+        </section>
+        <main class="container-fuild mainBody">
+
+        </main>
+        <footer class="container-fuild footer">
+            <h5>
+                <center>Developed By VirtualMark. 2020</center>
+            </h5>
+        </footer>
     </div>
     <div id="context-menu">
         <div class="item" onclick="copyLink()">
@@ -68,19 +53,6 @@
             <i class="fas fa-trash-o"></i> Delete
         </div>
     </div>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <!--Footer-->
-    <div class="container-fuild footer">
-        <h5>
-            <center>Developed By VirtualMark. 2020</center>
-        </h5>
-    </div>
-
-
-
     <script src="./js/all.js"></script>
 </body>
 
